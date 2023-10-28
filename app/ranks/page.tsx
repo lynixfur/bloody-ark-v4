@@ -79,8 +79,8 @@ const Rankings = () => {
                     </p>}
 
                     {data && data.success != true && <>
-                        {activeTab === "tribe_ranks" && <TribeRankings/>}
-                        {activeTab === "player_ranks" && <PlayerRankings/>}
+                        {activeTab === "tribe_ranks" && <TribeRankings data={[]}/>}
+                        {activeTab === "player_ranks" && <PlayerRankings data={[]}/>}
                     </>}
                 </div>
             </div>

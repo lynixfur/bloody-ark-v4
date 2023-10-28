@@ -1,10 +1,8 @@
-interface TribeRankingsFilters {
-    filter_by: string,
-    game: string,
-    cluster_id: string
+interface TribeRankingsProps {
+    data: any // TODO: Use Rankings Interface!!!
 }
 
-export default function TribeRankings() {
+export default function TribeRankings({data}: TribeRankingsProps) {
     return (
         <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1 gap-4">
             <div>
