@@ -6,7 +6,7 @@ const Hub = () => {
                 <div className="">
                     <div className="flex justify-center"><img src="/gigantoraptor.webp" alt="gigantoraptor"/></div>
                     <h1 className="text-red-600 text-4xl font-bold text-center mt-5">[404] Not Found</h1>
-                    <p className="mt-3 text-xl text-center">We can't find the page you were looking for maybe it was lost on another ARK?</p>
+                    <p className="mt-3 text-xl text-center">We can&apos;t find the page you were looking for maybe it was lost on another ARK?</p>
                 </div>
         </div>
     )

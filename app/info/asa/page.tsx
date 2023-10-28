@@ -46,7 +46,7 @@ const Info = () => {
             {data?.msg && <p className="text-center text-zinc-400">No Pages Available</p>}
             {!data?.msg && 
                 <>{data?.map((link: any) => (
-                    <button onClick={() => {
+                    <button key={link.id} onClick={() => {
                         setActiveTab({
                             tabId: link.id,
                             tabName: link.name,
