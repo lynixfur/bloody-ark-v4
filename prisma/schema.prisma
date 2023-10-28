@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String  @id @default(uuid())
+  username  String?
+  avatar String?
+  steamId  String 
+  discordId String?
+  creationDate DateTime @default(now())
+}
+
+model Info {
+  id    String  @id @default(uuid())
+  strId String
+  clusterId String
+  game GameEnum @default(ArkASA)
+  name  String
+  icon  String?
+  description String?
+  content String
+  visible Boolean @default(false)
+  lastUpdated DateTime @default(now())
+
+  // Relationship 
+  cluster Cluster @relation(fields: [clusterId], references: [id])
+}
+
+model Cluster {
+  id String  @id @default(uuid())
+  strId String
+  name String?
+  description String? 
+  game GameEnum @default(ArkASA)
+
+
+  // Cluster Stuff
+  servers Server[]
+  infos Info[]
+
+  // MYSQL INFORMATION
+  databaseUrl String?
+  databasePort String?
+  databaseUsername String?
+  databasePassword String?
+  databaseDb String?
+
+  visible Boolean @default(false)
+  lastUpdated DateTime @default(now())
+}
+
+model Server {
+  id    String  @id @default(uuid())
+  clusterId String
+  name  String
+  map   String?
+  cardBackground String 
+  cardIcon String
+  ipAddress String?
+  country CountryEnum @default(EU)
+  game GameEnum @default(ArkASA)
+  onlinePlayers Int?
+  visible Boolean @default(false)
+  joinable Boolean @default(false)
+  online Boolean @default(true)
+  lastUpdated DateTime @default(now())
+
+  // Relationship
+  cluster Cluster @relation(fields: [clusterId], references: [id])
+}
+
+enum GameEnum {
+  ArkASA
+  ArkASE
+  Ark2
+}
+
+enum CountryEnum {
+  EU
+  NA
+}
