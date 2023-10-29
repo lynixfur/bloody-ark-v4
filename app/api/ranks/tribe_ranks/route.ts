@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
+
+    try {
     // Get DB Creds
     const cluster = await prisma.cluster.findUnique({
         where: {
@@ -51,4 +53,15 @@ export async function GET(request: Request) {
     });
 
     return response;
+            
+    } catch(error: any) {
+        const response = new Response(JSON.stringify({"msg": "An unknown error has occured!", success: false}), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+        });
+    
+        return response;
+    }
 }
+
+export const dynamic = 'force-dynamic';

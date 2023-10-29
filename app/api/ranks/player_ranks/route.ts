@@ -10,3 +10,5 @@ export async function GET(request: Request) {
 
     return response;
 }
+
+export const dynamic = 'force-dynamic';
