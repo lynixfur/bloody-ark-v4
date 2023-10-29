@@ -5,6 +5,13 @@ import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Bloody ARK - Evolve or Die',
+  description: 'Welcome to BloodyARK, The perfect Ark: Survival Ascended experience. This server was established in 2017 and is still running strong as one of the biggest unofficial ark communities.',
+}
+
 export default function Home() {
   return (
     <>

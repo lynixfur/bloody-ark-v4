@@ -74,12 +74,12 @@ const Rankings = () => {
                         <span className={'text-red-600'}><i className="fa-solid fa-spinner fa-spin"></i></span>
                     </p>}
 
-                    {isLoading === false && data.msg && <p className="text-zinc-300 text-center text-xl">
-                        <i className="fa-solid fa-triangle-exclamation"></i> {data.msg}
+                    {isLoading === false && data.success != true && <p className="text-2xl text-red-600 text-center mt-10 font-semibold">
+                        <i className="fa-solid fa-triangle-exclamation"></i> <span className="text-zinc-300">{data.msg}</span>
                     </p>}
 
-                    {data && data.success != true && <>
-                        {activeTab === "tribe_ranks" && <TribeRankings data={[]}/>}
+                    {data && data.success != false && <>
+                        {activeTab === "tribe_ranks" && <TribeRankings data={data?.ranks}/>}
                         {activeTab === "player_ranks" && <PlayerRankings data={[]}/>}
                     </>}
                 </div>

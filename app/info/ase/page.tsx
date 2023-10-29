@@ -3,7 +3,6 @@
 import PageRender from "@/components/page-render";
 import { useEffect, useState } from "react";
 
-
 const Info = () => {
     const [data, setData]: any = useState(null);
     const [isLoading, setLoading] = useState(true);

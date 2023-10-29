@@ -1,5 +1,12 @@
 "use client"
 
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Bloody Hub Ascended',
+  description: 'Welcome to BloodyARK, The perfect Ark: Survival Ascended experience. This server was established in 2017 and is still running strong as one of the biggest unofficial ark communities.',
+}
+
 const Hub = () => {
     return (
         <div className="mt-20 bg-bgray-bg h-screen flex justify-center items-center">

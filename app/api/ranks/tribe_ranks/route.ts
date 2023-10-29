@@ -34,6 +34,7 @@ export async function GET(request: Request) {
     //.whereLike('advancedachievements_tribedata.TribeName', search)
     .groupBy('advancedachievements_tribedata.TribeID')
     //.orderBy(safeFilter, 'desc')
+    .orderBy('DamageScore', 'desc')
     .limit(20)
     .offset(20 * 1)
 
