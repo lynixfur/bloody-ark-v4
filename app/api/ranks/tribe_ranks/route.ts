@@ -11,7 +11,10 @@ export async function GET(request: Request) {
           id: "f6365f0c-0bf2-42ae-be08-0d9523f98205",
         },
     });
-  
+
+    const url = new URL(request.url);
+    const current_page = Number(url.searchParams.get("page") ? url.searchParams.get("page") : 0);
+    let search = url.searchParams.get("search") ? "%" + url.searchParams.get("search")?.toString() + "%" : "%%";
 
     const knex = require('knex')({
         client: 'mysql',
@@ -31,12 +34,12 @@ export async function GET(request: Request) {
     .sum('DeathByPlayer as Deaths')
     .sum('DinoKills as DinoKills')
     .sum('PlayTime as PlayTime')
-    //.whereLike('advancedachievements_tribedata.TribeName', search)
+    .whereLike('advancedachievements_tribedata.TribeName', search)
     .groupBy('advancedachievements_tribedata.TribeID')
     //.orderBy(safeFilter, 'desc')
     .orderBy('DamageScore', 'desc')
     .limit(20)
-    .offset(20 * 1)
+    .offset(20 * current_page)
 
     const safe_ranking_data = JSON.parse(JSON.stringify(ranking_data, (key, value) =>
         typeof value === 'bigint'
@@ -44,8 +47,28 @@ export async function GET(request: Request) {
         : value // return everything else unchanged
     ));
 
+    const count = await knex.table('advancedachievements_tribedata').select('TribeName')
+    .whereLike('advancedachievements_tribedata.TribeName', search);
+
+    var next_page = null;
+    var prev_page = null;
+
+    if (current_page < Math.round(count.length / 20)) {
+      next_page = `/api/ranks/tribe_ranks?page=${current_page + 1}`;
+    }
+
+    if (current_page > 0) {
+      prev_page = `/api/ranks/tribe_ranks?page=${current_page - 1}`;
+    }
+
     // Create a JSON object with the desired message.
-    const responseBody = { msg: "Success", success: true, ranks: safe_ranking_data };
+    const responseBody = { msg: "Success", success: true, ranks: safe_ranking_data,
+    pagination: {
+        total_pages: Math.round(count.length / 20),
+        current_page: current_page,
+        next: next_page,
+        prev: prev_page
+    } };
 
 
     const response = new Response(JSON.stringify(responseBody), {

@@ -31,18 +31,18 @@ const Info = () => {
     }, []);
 
     return (
-        <div className="mt-24 bg-bgray-bg h-screen flex">
+        <div className="mt-24 bg-bgray-bg min-h-screen flex">
          {/* Side Navigation */}
          <div className="w-[300px] py-5 border-r border-gray-700">
             <h1 className="font-bold text-2xl text-center mb-2 text-red-600">Information</h1>
             <div className="flex flex-col items-center space-x-3 px-10 mb-5 font-bold text-center">
                 <img src="/ark.webp" className="w-20 h-20 mb-2"/>
-                <p>Ark: Survival Evolved</p>
+                <p>ARK: Survival Evolved</p>
             </div>
             {isLoading && <p className={'text-2xl py-5 text-zinc-400 text-center'}>
                     <span className={'text-red-600'}><i className="fa-solid fa-spinner fa-spin"></i></span>
             </p>}
-            {data?.msg && <p>No Pages Available</p>}
+            {data?.msg && <p className="text-center text-zinc-400">No Pages Available</p>}
             {!data?.msg && 
                 <>{data?.map((link: any) => (
                     <button key={link.id} onClick={() => {

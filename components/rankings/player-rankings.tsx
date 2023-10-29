@@ -1,8 +1,10 @@
 interface PlayerRankingsProps {
     data: any // TODO: Use Rankings Interface!!!
+    search: any,
+    pagination: any
 }
 
-export default function PlayerRankings({data}: PlayerRankingsProps) {
+export default function PlayerRankings({ data, search, pagination }: PlayerRankingsProps) {
     return (
         <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1 gap-4">
             <div>
@@ -14,7 +16,7 @@ export default function PlayerRankings({data}: PlayerRankingsProps) {
                         >
                             <tbody>
                                 <tr className="focus:outline-none h-12 border-t border-b-[2px] border-bgray-bg bg-bgray-dropdown">
-                                    <th className="pl-5">
+                                    <th className={search ? "hidden pl-5" : "pl-5"}>
                                         <div className="flex items-center">
                                             <p className="text-base leading-none text-white font-bold uppercase">
                                                 Rank

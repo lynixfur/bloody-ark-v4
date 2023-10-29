@@ -29,7 +29,7 @@ export default function HomeHeader({ text }: HomeHeaderProps) {
                                 <div className="flex justify-center items-center space-x-3">
                                     <span className="relative inline-flex">
                                         <a
-                                            href="https://hub.bloody-ark.com"
+                                            href="/hub"
                                             className="inline-flex items-center  px-4 py-2 font-bold leading-6 text-md shadow rounded-full text-gray-100 bg-bred-2 transition ease-in-out duration-150"
                                         >
                                             <i className="fa-solid fa-arrow-right m-1 mr-2 my-auto text-xl text-gray-100" />{" "}
@@ -38,9 +38,9 @@ export default function HomeHeader({ text }: HomeHeaderProps) {
                                     </span>
                                     <button className="mb-2 md:mb-0 bg-bgray-secondary ring-1 ring-bgray-forward px-4 py-2 shadow-sm tracking-wider text-gray-300 rounded-full inline-flex items-center space-x-2 font-bold">
                                         <div className="flex">
-                                            <i className="fa-solid fa-server m-1 mr-2 text-red-600 animate-pulse my-auto" />
+                                            <i className="fa-solid fa-server m-1 mr-2 text-green-600 animate-pulse my-auto" />
                                             <span className="ml-1">
-                                                Servers Offline
+                                                Servers Online
                                             </span>
                                         </div>
                                     </button>
