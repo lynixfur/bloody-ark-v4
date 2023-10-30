@@ -1,3 +1,5 @@
+import TableHeader from "../table-header";
+
 interface TribeRankingsProps {
     data: any // TODO: Use Rankings Interface!!!
     search: any,
@@ -16,62 +18,14 @@ export default function TribeRankings({ data, search, pagination }: TribeRanking
                         >
                             <tbody>
                                 <tr className="focus:outline-none h-12 border-t border-b-[2px] border-bgray-bg bg-bgray-dropdown">
-                                    <th className={search ? "hidden pl-5" : "pl-5"}>
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Rank
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Tribe Name
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Tribe Damage
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Kills
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Deaths
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                KD
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Tame Kills
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Time Played
-                                            </p>
-                                        </div>
-                                    </th>
+                                    <TableHeader name="Rank" className={search ? "hidden pl-5" : "pl-5"}/>
+                                    <TableHeader name="Tribe Name" className="pl-5"/>
+                                    <TableHeader name="Tribe Damage" className="pl-5" active={true}/>
+                                    <TableHeader name="Kills" className="pl-5"/>
+                                    <TableHeader name="Deaths" className="pl-5"/>
+                                    <TableHeader name="KD" className="pl-5"/>
+                                    <TableHeader name="Tame Kills" className="pl-5"/>
+                                    <TableHeader name="Time Played" className="pl-5"/>
                                 </tr>
                                 {/* Map Information */}
                                 {data?.map((tribe: any, rank: any) => {
@@ -132,7 +86,7 @@ export default function TribeRankings({ data, search, pagination }: TribeRanking
                                             <td className="pl-5">
                                                 <div className="flex items-center">
                                                     <p className="text-base leading-none text-white font-bold">
-                                                        {(tribe?.Kills / tribe?.Deaths).toFixed(1)}
+                                                        {tribe?.KD}
                                                     </p>
                                                 </div>
                                             </td>

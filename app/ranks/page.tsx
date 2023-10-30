@@ -64,30 +64,42 @@ const Rankings = () => {
                         </div>
                     </div>
                 </div>
+                <div className="flex justify-center items-center space-x-4 py-10">
+                    <img src="/ark.webp" className="h-14 w-14" alt="ASA" />
+                    <h1 className="font-semibold text-xl">ARK: Survival Evolved (ASE)</h1>
+                </div>
 
-                <div className="p-5">
+                <div className="px-5 pb-5">
                     <div className="flex space-x-5">
                         <button
                             onClick={() => { changeTab("tribe_ranks") }}
-                            className={`hover:bg-bgray-secondary transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "tribe_ranks" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                            className={`hover:bg-bgray-secondary transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "tribe_ranks" ? 'text-white bg-red-600' : 'bg-bgray-dropdown'}`}
                         >
                             <i className="fa-solid fa-users"></i> Tribe Rankings
                         </button>
                         <button
                             onClick={() => { changeTab("player_ranks") }}
-                            className={`hover:bg-bgray-secondary  transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "player_ranks" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                            className={`hover:bg-bgray-secondary  transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "player_ranks" ? 'text-white bg-red-600' : 'bg-bgray-dropdown'}`}
                         >
                             <i className="fa-solid fa-user"></i> Player Rankings
                         </button>
                     </div>
 
-                    {/* Filters */}
-                    {data && data.success != false && isLoading === false && <div className="mt-10 flex space-x-4 items-center">
-                        <input
-                            value={search}
-                            onChange={handleOnChange}
-                            placeholder="Search for Tribes" name="tribe_search" id="tribe_search" className="px-3 py-2 text-gray-300 bg-bgray-overlay w-1/2 border-gray-700 border" />
-                    </div>}
+                    <div className="flex space-x-5">
+                        {/* Filters */}
+                        {data && data.success != false && <div className="mt-10 flex space-x-4 w-1/2 pr-3 items-center">
+                            <input
+                                value={search}
+                                onChange={handleOnChange}
+                                placeholder={`Search for ${activeTab === "tribe_ranks" ? 'Tribes' : 'Players'}`} name="tribe_search" id="tribe_search" className="px-3 py-2 text-gray-300 bg-bgray-dropdown flex-1 border-gray-700 border" />
+
+                            <div className="px-3 py-2 text-gray-300 bg-bgray-dropdown border-gray-700 border">
+                                <strong>Cluster:</strong> (ASE) 3 Man
+                            </div>
+                        </div>}
+                    </div>
+
+
 
                     {/* Data */}
                     <div className="mt-2 py-5">
@@ -101,7 +113,7 @@ const Rankings = () => {
 
                         {data && data.success != false && isLoading === false && <>
                             {activeTab === "tribe_ranks" && <TribeRankings data={data?.ranks} search={search} pagination={data?.pagination} />}
-                            {activeTab === "player_ranks" && <PlayerRankings data={data?.rank} search={search} pagination={data?.pagination} />}
+                            {activeTab === "player_ranks" && <PlayerRankings data={data?.ranks} search={search} pagination={data?.pagination} />}
                         </>}
                     </div>
 

@@ -12,6 +12,13 @@ export async function GET(request: Request) {
         },
     });
 
+    if(cluster === null || cluster === undefined) {     
+        const response = new Response(JSON.stringify({"msg": "Cluster Not Found!", success: false}), {
+            status: 404,
+            headers: { "Content-Type": "application/json" },
+        });
+    }
+
     const url = new URL(request.url);
     const current_page = Number(url.searchParams.get("page") ? url.searchParams.get("page") : 0);
     let search = url.searchParams.get("search") ? "%" + url.searchParams.get("search")?.toString() + "%" : "%%";
@@ -28,7 +35,12 @@ export async function GET(request: Request) {
       });
 
     const ranking_data = await knex.table('advancedachievements_tribedata')
-    .select('advancedachievements_tribedata.TribeID', 'advancedachievements_tribedata.TribeName', 'advancedachievements_tribedata.DamageScore')
+    .select(
+        'advancedachievements_tribedata.TribeID', 
+        'advancedachievements_tribedata.TribeName', 
+        'advancedachievements_tribedata.DamageScore',
+        knex.raw('(SUM(advancedachievements_playerdata.PlayerKills) / SUM(advancedachievements_playerdata.DeathByPlayer)) as KD')
+    )
     .leftJoin('advancedachievements_playerdata', 'advancedachievements_playerdata.TribeID', 'advancedachievements_tribedata.TribeID')
     .sum('PlayerKills as Kills')
     .sum('DeathByPlayer as Deaths')
@@ -40,6 +52,8 @@ export async function GET(request: Request) {
     .orderBy('DamageScore', 'desc')
     .limit(20)
     .offset(20 * current_page)
+    //.select(knex.raw('CASE WHEN Deaths = 0 THEN Kills ELSE Kills / Deaths END AS KD')) // WARN [DANGER]: Be careful of SQL INJECTION (In the future)
+    
 
     const safe_ranking_data = JSON.parse(JSON.stringify(ranking_data, (key, value) =>
         typeof value === 'bigint'

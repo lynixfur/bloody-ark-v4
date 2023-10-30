@@ -1,3 +1,5 @@
+import TableHeader from "../table-header"
+
 interface PlayerRankingsProps {
     data: any // TODO: Use Rankings Interface!!!
     search: any,
@@ -16,63 +18,95 @@ export default function PlayerRankings({ data, search, pagination }: PlayerRanki
                         >
                             <tbody>
                                 <tr className="focus:outline-none h-12 border-t border-b-[2px] border-bgray-bg bg-bgray-dropdown">
-                                    <th className={search ? "hidden pl-5" : "pl-5"}>
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Rank
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Player Name
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Tribe Name
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Play Time
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Player Kills
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Player Deaths
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                Tamed Dinos Kills
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th className="pl-5">
-                                        <div className="flex items-center">
-                                            <p className="text-base leading-none text-white font-bold uppercase">
-                                                KD
-                                            </p>
-                                        </div>
-                                    </th>
+                                    <TableHeader name="Rank" className={search ? "hidden pl-5" : "pl-5"} />
+                                    <TableHeader name="Player Name" className="pl-5" />
+                                    <TableHeader name="Tribe Name" className="pl-5" />
+                                    <TableHeader name="Play Time" className="pl-5" />
+                                    <TableHeader name="Player Kills" className="pl-5" active={true} />
+                                    <TableHeader name="Player Deaths" className="pl-5" />
+                                    <TableHeader name="Tamed Dinos Kills" className="pl-5" />
+                                    <TableHeader name="KD" className="pl-5" />
                                 </tr>
+                                {/* Map Information */}
+                                {data?.map((player: any, rank: any) => {
+                                    return (
+                                        <tr key={player?.PlayerName} className="focus:outline-none h-12 border-t border-b-[2px] border-bgray-bg bg-bgray-secondary">
+                                            <td className={search ? "hidden pl-5" : "pl-5"}>
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {((pagination?.current_page) * 20) + rank + 1}
+                                                    </p>
+
+                                                    {/* Tribe Ranking Trophy */}
+                                                    {pagination?.current_page == 0 &&
+                                                        <>
+                                                            {(() => {
+                                                                switch (rank) {
+                                                                    case 0:
+                                                                        return <p className="ml-1" style={{ color: '#ffd700' }}><i className="fa-solid fa-trophy"></i></p>;
+                                                                    case 1:
+                                                                        return <p className="ml-1" style={{ color: '#C0C0C0' }}><i className="fa-solid fa-trophy"></i></p>;
+                                                                    case 2:
+                                                                        return <p className="ml-1" style={{ color: '#977b29' }}><i className="fa-solid fa-trophy"></i></p>;
+                                                                    default:
+                                                                        return null;
+                                                                }
+                                                            })()}
+                                                        </>}
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.PlayerName}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.TribeName}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.PlayTime}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.PlayerKills}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.DeathByPlayer}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player.DinoKills}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td className="pl-5">
+                                                <div className="flex items-center">
+                                                    <p className="text-base leading-none text-white font-bold">
+                                                        {player?.KD}
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                     </div>
