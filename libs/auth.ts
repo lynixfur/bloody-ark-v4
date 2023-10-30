@@ -14,6 +14,7 @@ export const authOptions = (req: NextRequest): NextAuthOptions => {
             DiscordProvider({
                 clientId: process.env.DISCORD_CLIENT_ID || '',
                 clientSecret: process.env.DISCORD_CLIENT_SECRET || '',
+
             })
         ] : [],
         secret: process.env.NEXTAUTH_SECRET!,
@@ -41,6 +42,9 @@ export const authOptions = (req: NextRequest): NextAuthOptions => {
                     // @ts-expect-error
                     session.user.discordId = discordAccount?.providerAccountId;
                 }*/
+                
+                // @ts-expect-error 
+                session.user.role = "user";
 
                 return session;
             },
