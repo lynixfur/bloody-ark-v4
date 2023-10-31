@@ -36,7 +36,9 @@ const Hub = async () => {
                 </div>
             </div>
 
-            <p className="text-zinc-300 text-center py-10">There&apos;s nothing here yet, we&apos;re still working on the Bloody Hub Ascended!</p>
+            <p className="text-zinc-300 text-center py-10">There&apos;s nothing here yet, we&apos;re still working on the Bloody Hub Ascended!
+            <br/><br/>SteamID: {user?.steamId}<br/>
+            Role: {user?.role}</p>
         </HubWrapper>
     )
 }

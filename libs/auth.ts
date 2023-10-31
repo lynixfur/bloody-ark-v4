@@ -2,20 +2,20 @@ import { NextAuthOptions } from "next-auth";
 import { NextRequest } from 'next/server';
 import DiscordProvider from "next-auth/providers/discord";
 import SteamProvider from "./SteamProvider";
+import { PrismaClient } from "@prisma/client";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+
+const prisma = new PrismaClient();
+
 
 export const authOptions = (req: NextRequest): NextAuthOptions => {
     return {
-        //adapter: PrismaAdapter(prisma),
+        adapter: PrismaAdapter(prisma),
         providers: req ? [
             SteamProvider(req, {
                 clientSecret: process.env.STEAM_SECRET!,
                 callbackUrl: process.env.STEAM_CALLBACK || '',
             }),
-            DiscordProvider({
-                clientId: process.env.DISCORD_CLIENT_ID || '',
-                clientSecret: process.env.DISCORD_CLIENT_SECRET || '',
-
-            })
         ] : [],
         secret: process.env.NEXTAUTH_SECRET!,
         session: {
@@ -23,7 +23,7 @@ export const authOptions = (req: NextRequest): NextAuthOptions => {
         },
         callbacks: {
             async session({ session }) {
-                /*const prismaUser = await prisma.user.findUnique({
+                const prismaUser = await prisma.user.findUnique({
                     where: {
                         email: session.user?.email!,
                     },
@@ -37,14 +37,9 @@ export const authOptions = (req: NextRequest): NextAuthOptions => {
                     // @ts-expect-error
                     session.user.steamId = steamAccount?.providerAccountId;
                 }
-                const discordAccount = prismaUser?.accounts.find(a => a.provider == "discord");
-                if (!!discordAccount) {
-                    // @ts-expect-error
-                    session.user.discordId = discordAccount?.providerAccountId;
-                }*/
-                
-                // @ts-expect-error 
-                session.user.role = "user";
+
+                // @ts-expect-error
+                session.user.role = prismaUser.role;
 
                 return session;
             },

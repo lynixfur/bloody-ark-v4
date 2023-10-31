@@ -23,18 +23,18 @@ export default async function HubWrapper({ children }: { children: React.ReactNo
                     <button className={`hidden hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-brands fa-discord mr-2.5`}></i> Link Discord Account
                     </button>
-                    {user?.role === 'admin' && <>
+                    {user?.role == 'SYSTEM' && <>
                     <p className={`px-3 my-3 font-semibold`}><i className={`fa-solid fa-wrench mr-1`}></i> Admin Tools</p>
                     <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-users mr-2.5`}></i> Users
                     </button>
-                    <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
+                    <button className={`hidden hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-exclamation-triangle mr-2.5`}></i> Logs
                     </button>
-                    <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
+                    <button className={`hidden hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-users mr-2.5`}></i> Tribe Logs
                     </button>
-                    <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
+                    <button className={`hidden hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-search mr-2.5`}></i> Player & Tribe Finder
                     </button>
                     <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
@@ -46,7 +46,7 @@ export default async function HubWrapper({ children }: { children: React.ReactNo
                     <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-file mr-2.5`}></i> Page Editor
                     </button>
-                    <button className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
+                    <button className={`hidden hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-10 text-left ${false ? 'text-white bg-red-600 hover:bg-red-600' : ''}`}>
                         <i className={`fa-solid fa-cogs mr-2.5`}></i> Site Settings
                     </button>
                     <p className={`px-3 my-3 font-semibold`}><i className={`fa-solid fa-box mr-1`}></i> Other</p>

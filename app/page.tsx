@@ -55,7 +55,7 @@ export default function Home() {
           className="w-full bg-cover bg-left-top my-20"
           style={{
             height: "35rem",
-            backgroundImage: "url(" + "https://cdn.discordapp.com/attachments/793171913559506965/1153720192619266068/SLY22_Trio_pose-min.png" + ")",
+            backgroundImage: "url(" + "/imgs/SLY25_Towards_ob_2-min.png" + ")",
           }}
         >
           <div className="flex items-center justify-center h-full w-full bg-black bg-opacity-50">

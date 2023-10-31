@@ -87,7 +87,7 @@ export default function Navbar({ user, darken }: NavbarProps) {
               <Link href="https://shop.bloody.gg" className="block py-2 pr-4 pl-3 text-white rounded hover:text-mesa-orange md:p-0 font-bold text-lg  transition-colors"><i className="fa fa-solid fa-shop" /> Shop</Link>
             </li>
             <li>
-              <Link href="/support" className="block py-2 pr-4 pl-3 text-white rounded hover:text-mesa-orange md:p-0 font-bold text-lg transition-colors"><i className="fa-brands fa-discord" /> Discord</Link>
+              <Link href="https://discord.gg/bloody" className="block py-2 pr-4 pl-3 text-white rounded hover:text-mesa-orange md:p-0 font-bold text-lg transition-colors"><i className="fa-brands fa-discord" /> Discord</Link>
             </li>
             {user ?
               <li>

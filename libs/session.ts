@@ -4,7 +4,6 @@ import { DefaultSession } from 'next-auth';
 
 export interface IntUserProp {
     steamId?: string
-    discordId?: string
     role?: string
 }
 
