@@ -4,9 +4,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import SteamProvider from "./SteamProvider";
 import { PrismaClient } from "@prisma/client";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-
-const prisma = new PrismaClient();
-
+import prisma from "./db";
 
 export const authOptions = (req: NextRequest): NextAuthOptions => {
     return {

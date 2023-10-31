@@ -2,7 +2,8 @@ import HubWrapper from '@/components/layout/hub';
 import { getCurrentUser } from '@/libs/session';
 import UnauthorizedError from '@/components/errors/unauthorized';
 import { useState } from 'react';
-import PageEditor from '@/components/editors/page-editor';
+import ClusterEditor from '@/components/editors/cluster-editor';
+import UserEditor from '@/components/editors/user-editor';
 
 const Hub = async () => {
 
@@ -14,7 +15,7 @@ const Hub = async () => {
 
     return (
         <HubWrapper>
-            <PageEditor/>
+            <UserEditor/>
         </HubWrapper>
     )
 }

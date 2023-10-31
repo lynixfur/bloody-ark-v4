@@ -2,7 +2,7 @@ import HubWrapper from '@/components/layout/hub';
 import { getCurrentUser } from '@/libs/session';
 import UnauthorizedError from '@/components/errors/unauthorized';
 import { useState } from 'react';
-import PageEditor from '@/components/editors/page-editor';
+import ServerEditor from '@/components/editors/server-editor';
 
 const Hub = async () => {
 
@@ -14,7 +14,7 @@ const Hub = async () => {
 
     return (
         <HubWrapper>
-            <PageEditor/>
+            <ServerEditor/>
         </HubWrapper>
     )
 }
