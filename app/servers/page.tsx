@@ -81,7 +81,7 @@ const ServerList = () => {
                         <div className="w-full flex space-x-1">
                             <button
                                 onClick={() => { changeCluster("ASE_3MAN") }}
-                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASE_4MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASE_3MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
                             >
                                 <i className="fa-solid fa-users"></i> 3 Man
                             </button>
