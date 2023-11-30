@@ -20,7 +20,7 @@ export default function TribeRankings({ data, search, pagination }: TribeRanking
                                 <tr className="focus:outline-none h-12 border-t border-b-[2px] border-bgray-bg bg-bgray-dropdown">
                                     <TableHeader name="Rank" className={search ? "hidden pl-5" : "pl-5"}/>
                                     <TableHeader name="Tribe Name" className="pl-5"/>
-                                    <TableHeader name="Tribe Damage" className="pl-5" active={true}/>
+                                    <TableHeader name="Tribe Damage" className="pl-5"/>
                                     <TableHeader name="Kills" className="pl-5"/>
                                     <TableHeader name="Deaths" className="pl-5"/>
                                     <TableHeader name="KD" className="pl-5"/>

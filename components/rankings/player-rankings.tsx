@@ -22,7 +22,7 @@ export default function PlayerRankings({ data, search, pagination }: PlayerRanki
                                     <TableHeader name="Player Name" className="pl-5" />
                                     <TableHeader name="Tribe Name" className="pl-5" />
                                     <TableHeader name="Play Time" className="pl-5" />
-                                    <TableHeader name="Player Kills" className="pl-5" active={true} />
+                                    <TableHeader name="Player Kills" className="pl-5" />
                                     <TableHeader name="Player Deaths" className="pl-5" />
                                     <TableHeader name="Tamed Dinos Kills" className="pl-5" />
                                     <TableHeader name="KD" className="pl-5" />

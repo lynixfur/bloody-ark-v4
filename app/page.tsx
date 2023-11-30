@@ -55,7 +55,7 @@ export default function Home() {
           className="w-full bg-cover bg-left-top my-20"
           style={{
             height: "35rem",
-            backgroundImage: "url(" + "/imgs/SLY25_Towards_ob_2-min.png" + ")",
+            backgroundImage: "url(" + "/sly1.png" + ")",
           }}
         >
           <div className="flex items-center justify-center h-full w-full bg-black bg-opacity-50">

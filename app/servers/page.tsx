@@ -4,7 +4,7 @@ import ServerCard from "@/components/server-card";
 import { useEffect, useState } from "react";
 
 const ServerList = () => {
-    const [activeTab, setActiveTab] = useState("ASA_PVP");
+    const [activeTab, setActiveTab] = useState("ASA_2MAN");
     const [data, setData]: any = useState(null);
     const [isLoading, setLoading] = useState(true);
 
@@ -59,16 +59,16 @@ const ServerList = () => {
                         </div>
                         <div className="w-full flex space-x-1">
                             <button
-                                onClick={() => { changeCluster("ASA_PVP") }}
-                                className={`hover:bg-bgray-secondary transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "ASA_PVP" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                                onClick={() => { changeCluster("ASA_2MAN") }}
+                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASA_2MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
                             >
-                                <i className="fa-solid fa-shield"></i> PvP
+                                <i className="fa-solid fa-users"></i> 2 Man
                             </button>
                             <button
-                                onClick={() => { changeCluster("ASA_PVPVE") }}
-                                className={`hover:bg-bgray-secondary transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "ASA_PVPVE" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                                onClick={() => { changeCluster("ASA_4MAN") }}
+                                className={`hidden hover:bg-bgray-secondary transition-colors w-1/2 text-white font-bold py-2 px-5 ${activeTab === "ASA_4MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
                             >
-                                <i className="fa-solid fa-tree"></i> PvPvE
+                                <i className="fa-solid fa-users"></i> 4 Man
                             </button>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const ServerList = () => {
                         <div className="w-full flex space-x-1">
                             <button
                                 onClick={() => { changeCluster("ASE_3MAN") }}
-                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASE_3MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASE_4MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
                             >
                                 <i className="fa-solid fa-users"></i> 3 Man
                             </button>
@@ -89,7 +89,7 @@ const ServerList = () => {
                     </div>
                 </div>
 
-                <h3 className="font-extrabold uppercase text-white text-4xl my-5"><i className="fa-solid fa-circle-question"></i> Having trouble joining?</h3>
+                {activeTab == "ASE_3MAN" && <> <h3 className="font-extrabold uppercase text-white text-4xl my-5"><i className="fa-solid fa-circle-question"></i> Having trouble joining?</h3>
                 <p className="mb-5 text-base text-gray-100 sm:text-lg text-left">We can help you! Follow this simple step-by-step guide to get started.</p>
                 <p className="mb-5 text-gray-300 sm:text-lg text-left">
                     Step 1: Open Steam and click on view and then servers<br />
@@ -98,7 +98,35 @@ const ServerList = () => {
                     Step 4: Start Ark Survival and click Join ARK<br />
                     Step 5: Filter for favorites and ensure all other filters are reset<br />
                     Step 6: The server should now visible for you!!<br />
+                </p></>} 
+
+                {activeTab == "ASA_2MAN" && <>
+                <h3 className="font-extrabold uppercase text-white text-4xl my-5"><i className="fa-solid fa-circle-question"></i> Having trouble joining?</h3>
+                <p className="mb-5 text-base text-gray-100 sm:text-lg text-left">We can help you! Follow this simple step-by-step guide to get started.</p>
+                <p className="mb-5 text-gray-300 sm:text-lg text-left">
+                    To connect to our 2 Man Servers in ASA, follow these steps:<br/>
+                    Open the server browser in your game.<br/>
+                    Click on the &apos;Unofficial&apos; tab.<br/>
+                    In the search bar at the top right, type &apos;Bloody.&apos;<br/>
+                    Look for the server with the name &apos;BLOODY ARK / 2 MAN / PVP / THE ISLAND.&apos;<br/>
+                    Click on it to join and start your adventure with us!<br/>
                 </p>
+                </>
+                }
+
+                {activeTab == "ASA_4MAN" && <>
+                <h3 className="font-extrabold uppercase text-white text-4xl my-5"><i className="fa-solid fa-circle-question"></i> Having trouble joining?</h3>
+                <p className="mb-5 text-base text-gray-100 sm:text-lg text-left">We can help you! Follow this simple step-by-step guide to get started.</p>
+                <p className="mb-5 text-gray-300 sm:text-lg text-left">
+                    To connect to our 4 Man Servers in ASA, follow these steps:<br/>
+                    Open the server browser in your game.<br/>
+                    Click on the &apos;Unofficial&apos; tab.<br/>
+                    In the search bar at the top right, type &apos;Bloody.&apos;<br/>
+                    Look for the server with the name &apos;BLOODY ARK / 4 MAN / PVP / THE ISLAND.&apos;<br/>
+                    Click on it to join and start your adventure with us!<br/>
+                </p>
+                </>
+                }
 
                 {isLoading && <p className={'text-2xl py-5 text-zinc-400'}>
                     <span className={'text-red-600'}><i className="fa-solid fa-spinner fa-spin"></i></span>

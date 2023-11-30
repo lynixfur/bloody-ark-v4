@@ -85,7 +85,7 @@ const Rankings = () => {
                         </button>
                     </div>
 
-                    <div className="flex space-x-5">
+                    <div className="flex space-x-5 hidden">
                         {/* Filters */}
                         {data && data.success != false && <div className="mt-10 flex space-x-4 w-1/2 pr-3 items-center">
                             <input

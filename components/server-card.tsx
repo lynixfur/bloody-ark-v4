@@ -13,7 +13,7 @@ export default function ServerCard(props: any) {
                         <p className="mt-1"><i className="fa-solid fa-earth-americas"></i> Map: {props?.server?.map}</p>
                         {props?.server?.ipAddress && <p className="mt-1"><i className="fa-solid fa-server"></i> IP: {props?.server?.ipAddress.replace("steam://connect/","")}</p>}
                         <div className="mt-3 flex space-x-4">
-                            <span className={"text-white text-sm font-bold rounded-full px-2 py-1" + props?.server?.online ? 'bg-green-700 text-white text-sm font-bold rounded-full px-2 py-1' : 'bg-red-700 text-white text-sm font-bold rounded-full px-2 py-1'}>{props?.server?.online ? 'Server Online' : 'Server'}</span>
+                            <span className={`text-white text-sm font-bold rounded-full px-2 py-1 ${props?.server?.online ? 'bg-green-700 text-white text-sm font-bold rounded-full px-2 py-1' : 'bg-red-700 text-white text-sm font-bold rounded-full px-2 py-1'}`}>{props?.server?.online ? 'Server Online' : 'Server Offline'}</span>
                             {props?.server?.ipAddress && <button onClick={() => {window.open('steam://connect/' + props?.server?.ipAddress.replace("steam://connect/",""))}} className="text-white text-sm font-bold bg-red-600 rounded-full px-2 py-1"><i className="fa-solid fa-arrow-right"></i> Join Server</button>}
                         </div>
                        </div>
