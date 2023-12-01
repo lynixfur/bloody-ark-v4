@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface HomeHeaderProps {
     text: string;
 }
@@ -7,7 +9,7 @@ export default function HomeHeader({ text }: HomeHeaderProps) {
         <div
             className="h-full"
             style={{
-                background: "url(" + '/bg.png' + ")",
+                background: "url(" + '/imgs/SLY25_Towards_ob_no_text.png' + ")",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -36,14 +38,14 @@ export default function HomeHeader({ text }: HomeHeaderProps) {
                                             Access Hub
                                         </a>
                                     </span>
-                                    <button className="mb-2 md:mb-0 bg-bgray-secondary ring-1 ring-bgray-forward px-4 py-2 shadow-sm tracking-wider text-gray-300 rounded-full inline-flex items-center space-x-2 font-bold">
+                                    <Link href="/servers" className="mb-2 md:mb-0 bg-bgray-secondary ring-1 ring-bgray-forward px-4 py-2 shadow-sm tracking-wider text-gray-300 rounded-full inline-flex items-center space-x-2 font-bold">
                                         <div className="flex">
                                             <i className="fa-solid fa-server m-1 mr-2 text-green-600 animate-pulse my-auto" />
                                             <span className="ml-1">
                                                 Servers Online
                                             </span>
                                         </div>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
