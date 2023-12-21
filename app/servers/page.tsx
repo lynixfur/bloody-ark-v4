@@ -4,7 +4,7 @@ import ServerCard from "@/components/server-card";
 import { useEffect, useState } from "react";
 
 const ServerList = () => {
-    const [activeTab, setActiveTab] = useState("ASA_2MAN");
+    const [activeTab, setActiveTab] = useState("ASA_5MAN");
     const [data, setData]: any = useState(null);
     const [isLoading, setLoading] = useState(true);
 
@@ -59,10 +59,10 @@ const ServerList = () => {
                         </div>
                         <div className="w-full flex space-x-1">
                             <button
-                                onClick={() => { changeCluster("ASA_2MAN") }}
-                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASA_2MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
+                                onClick={() => { changeCluster("ASA_5MAN") }}
+                                className={`hover:bg-bgray-secondary transition-colors w-full text-white font-bold py-2 px-5 ${activeTab === "ASA_5MAN" ? 'text-white bg-red-600' : 'bg-bgray-overlay'}`}
                             >
-                                <i className="fa-solid fa-users"></i> 2 Man
+                                <i className="fa-solid fa-users"></i> 5 Man
                             </button>
                             <button
                                 onClick={() => { changeCluster("ASA_4MAN") }}
@@ -114,17 +114,19 @@ const ServerList = () => {
                 </>
                 }
 
-                {activeTab == "ASA_4MAN" && <>
+                {activeTab == "ASA_5MAN" && <>
                 <h3 className="font-extrabold uppercase text-white text-4xl my-5"><i className="fa-solid fa-circle-question"></i> Having trouble joining?</h3>
                 <p className="mb-5 text-base text-gray-100 sm:text-lg text-left">We can help you! Follow this simple step-by-step guide to get started.</p>
-                <p className="mb-5 text-gray-300 sm:text-lg text-left">
-                    To connect to our 4 Man Servers in ASA, follow these steps:<br/>
-                    Open the server browser in your game.<br/>
-                    Click on the &apos;Unofficial&apos; tab.<br/>
-                    In the search bar at the top right, type &apos;Bloody.&apos;<br/>
-                    Look for the server with the name &apos;BLOODY ARK / 4 MAN / PVP / THE ISLAND.&apos;<br/>
-                    Click on it to join and start your adventure with us!<br/>
-                </p>
+                <ul className="list-disc pl-5">
+                    <li>Open the server browser in your game</li>
+                    <li>Click on the &apos;Unofficial&apos; tab</li>
+                    <li>Click on the checkbox &apos;Show Player Servers&apos;</li>
+                    <li>In the search bar at the top right, type &apos;Bloody&apos;</li>
+                    <li>Click on the Refresh button</li>
+                    <li>Look for the server with the name similar to &apos;BLOODY ARK / X MAN / PVP / MAP_NAME&apos;</li>
+                    <li>Click on it to join and start your adventure with us</li>
+                    <li>We recommend adding the server to your favorites by selecting the server in the list and pressing &apos;Add to favorites&apos;</li>
+                </ul>
                 </>
                 }
 

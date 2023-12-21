@@ -19,6 +19,11 @@ export default function HubNavMenu({ user }: any) {
                     <i className={`fa-solid fa-home mr-2.5`}></i> Home
                 </Link>
             </div>
+            <div className={`hover:bg-bgray-secondary transition-colors text-white font-bold py-2 px-10 text-left ${pathname === "/test" ? 'text-white bg-red-600 hover:bg-red-600 w-full' : ''} w-full`}>
+                <Link href="https://hub.bloody.gg/api/auth/login">
+                    <i className={`fa-solid fa-cube mr-2.5`}></i> Bloody Hub ASE
+                </Link>
+            </div>
             <div className={`hidden hover:bg-bgray-secondary transition-colors text-white font-bold py-2 px-10 text-left ${pathname === "/hub/link-discord" ? 'text-white bg-red-600 hover:bg-red-600 w-full' : ''} w-full`}>
                 <Link href="/hub">
                     <i className={`fa-brands fa-discord mr-2.5`}></i> Link Discord Account
