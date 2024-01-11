@@ -8,7 +8,7 @@ import Navbar from '@/components/layout/navbar'
 import HomeHeader from '@/components/home-header'
 import Switcher from '@/components/switcher';
 import Footer from '@/components/layout/footer'
-
+import CookieConsent from '@/components/CookieConsent'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,6 +38,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={inter.className + "bg-bgray-bg dark"}>
+        <CookieConsent/>
         <Switcher user={user}/>
         {children}
         <Footer/>

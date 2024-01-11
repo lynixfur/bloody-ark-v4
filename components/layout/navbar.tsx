@@ -41,7 +41,7 @@ export default function Navbar({ user, darken }: NavbarProps) {
   }
 
   return (
-    <nav className={navBg ? 'bg-bgray-bg border-b-2 border-gray-700 px-2 sm:px-4 py-2.5 fixed top-0 w-full z-50' : 'bg-transparent px-2 sm:px-4 py-2.5 fixed top-0 w-full z-20'}>
+    <nav className={navBg ? 'bg-bgray-bg border-b-2 border-gray-700 px-2 sm:px-4 py-2.5 fixed top-0 w-full z-40' : 'bg-transparent px-2 sm:px-4 py-2.5 fixed top-0 w-full z-20'}>
 
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/" className="flex text-2xl font-bold tracking-widest uppercase rounded-lg text-white focus:outline-none focus:shadow-outline">

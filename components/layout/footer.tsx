@@ -11,6 +11,7 @@ export default function Footer() {
             <p className="text-white text-sm text-center sm:text-left">
                 Copyright © 2023 BloodyARK. All Rights Reserved.
             </p>
+            <a href="/privacy-policy" className="text-white text-sm text-center sm:text-left">Privacy Policy</a>
         </div>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start space-x-4 items-center">
             <img src="/Nitrado_Logo_yellow_TextToTheSide_white_border.png" className="h-8"/>
