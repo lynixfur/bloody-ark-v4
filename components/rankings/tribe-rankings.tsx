@@ -6,6 +6,8 @@ interface TribeRankingsProps {
     pagination: any
 }
 
+//test
+
 export default function TribeRankings({ data, search, pagination }: TribeRankingsProps) {
     return (
         <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-1 xl:grid-cols-1 gap-4">
