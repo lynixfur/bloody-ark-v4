@@ -1,5 +1,4 @@
 import prisma from "@/libs/db";
-import { PrismaClient } from "@prisma/client";
 
 export async function GET(request: Request) {
 
@@ -83,6 +82,8 @@ export async function GET(request: Request) {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });
+
+        return response;
     }
 }
 

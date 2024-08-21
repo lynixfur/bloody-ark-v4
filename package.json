@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +13,7 @@
     "@prisma/client": "^5.5.2",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
+    "axios": "^1.7.4",
     "cookies-next": "^4.1.0",
     "knex": "^3.0.1",
     "mysql": "^2.18.1",

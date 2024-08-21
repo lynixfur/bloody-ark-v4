@@ -12,7 +12,7 @@ export default async function HubWrapper({ children }: { children: React.ReactNo
 
     return (
         <section>
-            <div className="flex mt-24">
+            <div className="flex">
                 <HubNavMenu user={user}/>
                 <div className="flex-1">
                     <div className="bg-bgray-bg min-h-screen">

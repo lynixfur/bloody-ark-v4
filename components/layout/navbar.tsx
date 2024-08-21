@@ -111,8 +111,8 @@ export default function Navbar({ user, darken }: NavbarProps) {
               </li>
               :
               <li>
-                {/*<button onClick={() => signIn("steam")} className="block py-2 pr-4 pl-3 text-white bg-bred-2 rounded-full p-4 font-bold transition-colors"><i className="fas fa-user mr-2"></i> Login</button>*/}
-                <a href="https://hub.bloody.gg/" className="block py-2 pr-4 pl-3 text-white bg-bred-2 rounded-full p-4 font-bold transition-colors"><i className="fas fa-user mr-2"></i> Login</a>
+                <button onClick={() => signIn("steam")} className="block py-2 pr-4 pl-3 text-white bg-bred-2 rounded-full p-4 font-bold transition-colors"><i className="fas fa-user mr-2"></i> Login</button>
+                {/*<a href="https://hub.bloody.gg/" className="block py-2 pr-4 pl-3 text-white bg-bred-2 rounded-full p-4 font-bold transition-colors"><i className="fas fa-user mr-2"></i> Login</a>*/}
               </li>
             }
           </ul>
