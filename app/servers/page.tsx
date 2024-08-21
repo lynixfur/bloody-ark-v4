@@ -4,7 +4,7 @@ import ServerCard from "@/components/server-card";
 import { useEffect, useState } from "react";
 
 const ServerList = () => {
-    const [activeTab, setActiveTab] = useState("ASA_5MAN");
+    const [activeTab, setActiveTab] = useState("ASE_3MAN");
     const [data, setData]: any = useState(null);
     const [isLoading, setLoading] = useState(true);
 
@@ -50,7 +50,7 @@ const ServerList = () => {
             </div>
 
             <div className="p-10">
-                <div className="flex space-x-5">
+                <div className="flex space-x-5 hidden">
 
                     <div id="asa" className="w-full flex flex-col justify-center text-center">
                         <div className="flex justify-center items-center space-x-4 mb-3">
